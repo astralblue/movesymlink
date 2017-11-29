@@ -9,17 +9,9 @@ import pytest
 import movesymlink
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
+def test_move_symlink_exists():
+    """`movesymlink.move_symlink` should exist.
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
+    Just that.
     """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    assert hasattr(movesymlink, 'move_symlink')

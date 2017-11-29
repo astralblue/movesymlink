@@ -32,7 +32,11 @@ import movesymlink
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
+extensions = [
+        'sphinx.ext.autodoc',
+        'sphinx.ext.viewcode',
+        'sphinx.ext.intersphinx',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -160,4 +164,11 @@ texinfo_documents = [
 ]
 
 
+# -- Options for intersphinx linking -----------------------------------
 
+# Intersphinx link definitions.  Format is:
+# {'acme': ('https://docs.acme.example.com',
+#           'inventory.txt' or None for default),
+#  ...
+#  }
+intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}

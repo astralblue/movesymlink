@@ -28,7 +28,12 @@ Move Symlink provides a function and a command that moves a symbolic link to ano
 Features
 --------
 
-* TODO
+* Provides one function, :py:func:`movesymlink.move_symlink()`, which does the
+  job.
+* Provides a command-line wrapper ``movesymlink``.
+* :py:mod:`movesymlink` can also be invoked from command line using ``python -m
+  movesymlink``.
+
 
 Credits
 ---------

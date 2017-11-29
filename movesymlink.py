@@ -12,6 +12,7 @@ import logging
 import os
 import os.path
 import stat
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -133,7 +134,8 @@ def move_symlink(src, dst):
         raise
 
 
-if __name__ == '__main__':
+def main():
+    """Run this module as a command."""
     parser = argparse.ArgumentParser()
     logging.basicConfig(format=("{}: %(levelname)s: %(message)s"
                                 .format(parser.prog)))
@@ -153,4 +155,9 @@ if __name__ == '__main__':
             logger.critical(e, exc_info=e)
         else:
             logger.critical(e)
-        raise SystemExit(1) from None
+        return 1
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

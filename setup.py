@@ -3,7 +3,7 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -32,7 +32,7 @@ setup(
     author="Eugene M. Kim",
     author_email='astralblue@gmail.com',
     url='https://github.com/astralblue/movesymlink',
-    packages=find_packages(include=['movesymlink']),
+    py_modules=['movesymlink'],
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",

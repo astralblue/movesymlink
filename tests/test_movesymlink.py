@@ -6,7 +6,7 @@
 import pytest
 
 
-from movesymlink import movesymlink
+import movesymlink
 
 
 @pytest.fixture

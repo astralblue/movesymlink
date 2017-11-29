@@ -142,21 +142,34 @@ def main():
     logger.setLevel(logging.WARNING)
     parser.add_argument('--debug', action='store_const', const=True,
                         help="""enable debugging""")
-    parser.add_argument('src', help="""source symbolic link""")
+    parser.add_argument('src', nargs='+', help="""source symbolic link""")
     parser.add_argument('dst', help="""destination symbolic link""")
     parser.set_defaults(debug=False)
     args = parser.parse_args()
     if args.debug:
         logger.setLevel(logging.DEBUG)
-    try:
-        move_symlink(args.src, args.dst)
-    except OperationError as e:
-        if args.debug:
-            logger.critical(e, exc_info=e)
-        else:
-            logger.critical(e)
-        return 1
-    return 0
+
+    if len(args.src) > 1:
+        try:
+            dst_is_dir = _isdir(args.dst)
+        except OperationError as e:
+            logger.error(e, exc_info=(e if args.debug else None))
+            return 1
+        if not dst_is_dir:
+            logger.error("more than one source is given "
+                         "but destination {!r} is not a directory"
+                         .format(args.dst))
+            return 1
+
+    ok = True
+    for src in args.src:
+        try:
+            move_symlink(src, args.dst)
+        except OperationError as e:
+            logger.error(e, exc_info=(e if args.debug else None))
+            ok = False
+
+    return 0 if ok else 1
 
 
 if __name__ == '__main__':

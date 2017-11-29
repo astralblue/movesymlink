@@ -33,6 +33,11 @@ setup(
     author_email='astralblue@gmail.com',
     url='https://github.com/astralblue/movesymlink',
     py_modules=['movesymlink'],
+    entry_points={
+        'console_scripts': [
+            'movesymlink = movesymlink:main',
+        ],
+    },
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",

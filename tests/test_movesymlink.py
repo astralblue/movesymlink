@@ -3,7 +3,7 @@
 
 """Tests for `movesymlink` package."""
 
-import pytest
+# import pytest  # until we have better tests...
 
 
 import movesymlink

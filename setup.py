@@ -25,7 +25,9 @@ test_requirements = [
 setup(
     name='movesymlink',
     version='0.1.0',
-    description="Move Symlink provides a function and a command that moves a symbolic link to another directory and adjusts its link target.",
+    description="Move Symlink provides a function and a command that moves a "
+                "symbolic link to another directory and adjusts its link "
+                "target.",
     long_description=readme + '\n\n' + history,
     author="Eugene M. Kim",
     author_email='astralblue@gmail.com',

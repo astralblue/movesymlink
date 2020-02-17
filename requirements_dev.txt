@@ -5,7 +5,7 @@ watchdog==0.10.2
 flake8==3.7.9
 flake8_docstrings==1.5.0
 tox==3.14.5
-coverage==4.5.2
+coverage==5.0.3
 Sphinx==1.8.4
 cryptography==2.6.1
 PyYAML==3.13
